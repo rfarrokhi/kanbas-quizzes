@@ -1,0 +1,141 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Course > Settings > Navigation - Kanbas</title>
+    <script src="/NavigationInjection.js" defer></script>
+    <link
+            href="/libs/bootstrap-5.3.2-dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="/libs/fontawesome/css/all.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Kanbas-old/styles.css" />
+</head>
+<body>
+<div class="body container-fluid text-center">
+    <div class="row">
+        <div class="col-1 left">
+            <div id="kanbas-navigation">
+                <!-- Will be injected by NavigationInjection.js -->
+            </div>
+        </div>
+        <div class="col-12 col-lg-10">
+            <div class="d-flex mb-3 flex-column main">
+                <div class="p-2 row header">
+                    <div
+                            class="col-12 title d-flex flex-row flex-wrap align-items-center"
+                    >
+                        <i class="fa-solid fa-bars sidebar-button"></i>
+                        <nav aria-label="breadcrumb align-self-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">CS5610.35159.202430</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Modules
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="p-2 assignments row">
+                    <div class="container-fulid sidebar col-2">
+                        <p class="decription">202430_2 Spring 2024 Semester Full Term Grad</p>
+                        <ul id="course-navigation" class="nav sidebar-menu flex-column">
+                            <!-- Will be injected by NavigationInjection.js -->
+                        </ul>
+                    </div>
+                    <div class="container-fluid assignments col-md-7-5">
+                        <div class="main-header">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="/Kanbas-old/Courses/Settings">Course Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Section</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Navigation</a>
+                                </li>
+                            </ul>
+                            <p>
+                                Drag and drop items to reorder them in the course
+                                navigation.
+                            </p>
+                            <ul class="nav flex-column drag">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Modules</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Piazza</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Zoom Meetings</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Assignments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Quizzes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Grades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">People</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Panopto Video</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Discussions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Announcements</a>
+                                </li>
+                            </ul>
+                            <h3>Drag items here to hide them from students.</h3>
+                            <p>
+                                Disabling most pages will cause students who visit those
+                                pages to be redirected to the course home page.
+                            </p>
+                            <ul class="nav flex-column drag">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Pages</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Files</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Rubrics</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Outcomes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Collaborations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Syllabus</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Settings</a>
+                                </li>
+                            </ul>
+                            <hr />
+                            <a href="/Kanbas-old/Courses/Settings"
+                            ><button class="update">Save</button></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

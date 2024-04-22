@@ -1,0 +1,508 @@
+.btn {
+    border-radius: 3px;
+}
+.btn-default {
+    background: #eee;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin: 0;
+    color: #000000;
+}
+.btn-default:hover {
+    background: #ccc;
+    color: #000000;
+}
+.btn-fullgreen {
+    background: #1ca00b;
+    border-radius: 3px;
+    color: #fff;
+    border: 1px solid #0a6a37;
+    margin: 0;
+}
+.btn-fullgreen:hover {
+    background: #0ea755;
+    color: #fff;
+}
+.btn-red {
+    background-color: #9f231c;
+    color: #fff;
+}
+.btn-red:hover {
+    background-color: #d41c2c;
+    color: #fff;
+}
+.left {
+    margin: 0;
+    padding: 0;
+    min-width: 75px;
+    max-width: 85px;
+    position: relative;
+}
+.left #kanbas-navigation {
+    background: #000000;
+    color: #fff;
+    position: fixed;
+    height: 100%;
+    min-width: 75px;
+    max-width: 85px;
+    text-align: center;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+}
+.left #kanbas-navigation .logo-container {
+    width: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+.logo {
+    background-image: url("/Images/NE_Logo.png");
+    display: block;
+    overflow: hidden;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s;
+    height: 75px;
+}
+#kanbas-navigation .nav-item,
+#full-navbar .nav-item {
+    height: 75px;
+    min-width: 75px;
+    max-width: 85px;
+}
+#kanbas-navigation .nav-item a,
+#full-navbar .nav-item a {
+    padding: 5px 0px 5px 0px;
+}
+#kanbas-navigation .nav-icon-container,
+#full-navbar .nav-icon-container {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    fill: #ffffff;
+}
+.nav-icon-container i {
+    font-size: 25px;
+    line-height: 37px;
+    color: #d41b2c;
+}
+.left #kanbas-navigation .nav-link {
+    padding: 0;
+}
+.left #kanbas-navigation .nav-link .nav-icon-container .ic-icon-svg {
+    fill: #d41b2c;
+}
+.left .nav-link .menu-text {
+    color: #ccc;
+    font-size: 12px;
+    margin: 5px 0px 5px 0px;
+}
+.left #kanbas-navigation .nav-active {
+    background: #fff;
+}
+.left #kanbas-navigation .nav-active .menu-text {
+    color: #d41c2c;
+    line-height: 25px;
+}
+.hamburger-menu {
+    background: none;
+    border: none;
+    font-size: 45px;
+    color: red;
+}
+.main .header {
+    border-bottom: 1px solid #ccc;
+}
+.main .header .title {
+    text-align: left;
+}
+.main .header .title p {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+.main .nav-item a {
+    text-align: left;
+    color: #9f231c;
+}
+.main .nav-item .nav-link {
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+.main .nav-item .active {
+    text-align: left;
+    color: #000000;
+    border-left: 8px solid #000000;
+}
+.main .profile .profile-context {
+    text-align: left;
+}
+.main .profile .portrait img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.main .profile .portrait p {
+    font-size: 24px;
+    padding: 10px 0px 10px 0px;
+}
+
+.main .profile .links svg {
+    width: 30px;
+}
+.main .profile .links a, i {
+    color: #d41c2c;
+    text-decoration: none;
+    line-height: 30px;
+}
+.hyperlink-icon i {
+    font-size: 25px;
+    color: #3c9c6b;
+    margin-top: 3px;
+    margin-right: 10px
+}
+.main .profile .profile-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px 0px 10px 0px;
+}
+.main .profile .portrait-edit label {
+    display: block;
+}
+.main .profile .edit-buttons .profile-save {
+    background: #d41c2c;
+    color: #eeeeee;
+}
+.main .dashboard .course {
+    width: 270px;
+    height: 300px;
+    border-radius: 0px;
+    text-align: left;
+    margin: 0px 30px 30px 0px;
+}
+.main .dashboard .course .card-body {
+    padding: 6px;
+    height: 100px;
+}
+.main .dashboard .course .card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.main .dashboard .course .card-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.main .title {
+    height: 60px;
+}
+.main .title .breadcrumb {
+    margin: 0;
+}
+.decription {
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.main .title .sidebar-button {
+    font-size: 40px;
+    margin: 0 20px 0 20px;
+    color: #d41c2c;
+}
+.main .title .breadcrumb > li + li:before {
+    color: #000000;
+    content: "> ";
+    padding: 0 5px;
+}
+.main .title .breadcrumb-item a {
+    color: #d41c2c;
+    text-decoration: none;
+}
+.main .main-header {
+    text-align: left;
+    margin: 10px 0px 10px 0px;
+}
+.main .main-header button {
+    font-size: 14px;
+}
+.main .main-header table {
+    line-height: 40px;
+}
+.main-header table td {
+    vertical-align: top;
+}
+#control-course ul li {
+    width: 100%;
+    margin: 3px;
+    padding: 0;
+}
+#control-course ul li button {
+    text-align: left;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#control-course ul li > button {
+    width: inherit;
+}
+#control-course ul li .parallel-buttons {
+    font-size: 0;
+    margin: 0px 0px 10px 0px;
+}
+#control-course ul li .parallel-buttons button {
+    width: calc(50%);
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+}
+#control-course ul li .parallel-buttons button i {
+    margin: 3px;
+}
+.course-info {
+    padding: 0;
+}
+
+.panel {
+    margin: 10px 0px 20px 0px;
+}
+.panel .panel-title {
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+}
+.panel .panel-title p {
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
+}
+.sidebar {
+    padding: 0 0 0 20px;
+    max-width: 200px;
+    min-width: 190px;
+}
+.col-md-1-5 {
+    width: 12.5%;
+}
+.col-md-2-5 {
+    width: 20.83333%;
+}
+.col-md-3-5 {
+    width: 29.16667%;
+}
+.col-md-4-5 {
+    width: 37.5%;
+}
+.col-md-5-5 {
+    width: 45.83333%;
+}
+.col-md-6-5 {
+    width: 54.16667%;
+}
+.col-md-7-5 {
+    width: 62.5%;
+}
+.col-md-8-5 {
+    width: 70.83333%;
+}
+.col-md-9-5 {
+    width: 79.16667%;
+}
+.col-md-10-5 {
+    width: 87.5%;
+}
+.col-md-11-5 {
+    width: 95.8333%;
+}
+.fa {
+    color: #d41c2c;
+}
+.kanbas-card {
+    width: 100%;
+}
+.kanbas-card .kanbas-card-title {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    height: 50px;
+}
+.kanbas-card .kanbas-card-title h3 {
+    font-size: 16px;
+    text-align: left;
+    font-weight: normal;
+    padding: 10px;
+    line-height: 30px;
+    margin: 0;
+}
+.kanbas-card .kanbas-card-body {
+    padding: 10px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+.kanbas-card .kanbas-card-body ul li {
+    border: 1px solid #ccc;
+    height: 50px;
+    border-top: none;
+}
+.kanbas-card .kanbas-card-body ul li:hover {
+    background: #eef7ff;
+}
+.kanbas-card .kanbas-card-body ul li a {
+    text-decoration: none;
+    color: #000000;
+    line-height: 30px;
+    display: block;
+}
+.course-link {
+    color: #9f231c !important;
+}
+.grades .searchbar {
+    margin: 20px 0px 20px 0px;
+}
+.grades .grades_control {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.grades .grades_control .dropdown,
+.grades .grades_control .btn {
+    margin-right: 10px;
+}
+.grades .result .result-table {
+    border: 1px solid #ccc;
+}
+.grades .result .result-table thead tr th {
+    background: #eeeeee;
+}
+.grades .result .result-table input {
+    text-align: center;
+}
+.published {
+    font-size: 16px;
+}
+.main-body {
+    text-align: left;
+}
+.assignments {
+    text-align: left;
+}
+.assignments-detail-form > form > div {
+    margin: 20px 0px 20px 0px;
+}
+.assignments-card {
+    text-align: left;
+    border-radius: 0px;
+    border-left: 5px solid #0a6a37;
+}
+.assignments-card ul li:first-child {
+    height: 50px;
+}
+.assignments-card .assignments li {
+    margin: 10px 0px 10px 0px;
+    height: 200px;
+}
+.assignments-card a {
+    text-decoration: none;
+    color: #000000;
+}
+.assignments-card a:hover {
+    text-decoration: none;
+    color: #d41b2c;
+}
+.assignments-card li h1 {
+    font-size: 22px;
+}
+.assignments-card li div {
+    width: 80%;
+}
+.dashboard-courses {
+    max-width: 1300px;
+}
+@media screen and (max-width: 1400px) {
+    .panel {
+        display: none;
+    }
+}
+@media screen and (max-width: 900px) {
+    #kanbas-navigation {
+        display: none;
+    }
+    .left {
+        display: none;
+    }
+    .sidebar {
+        display: none;
+    }
+    .course-info {
+        display: none;
+    }
+    .header {
+        display: none;
+    }
+    .assignments {
+        padding: 0;
+        margin: 0;
+        width: 100% !important;
+    }
+    .assignments .main-header {
+        margin: 0;
+        padding: 0;
+    }
+    .btn {
+        font-size: 14px !important;
+    }
+}
+.input-border {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.update {
+    float: right;
+    padding: 10px;
+    background-color: #d41c2c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+.card a {
+    text-decoration: none;
+    color: #000000;
+}
+.drag {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+.drag li {
+    border: 1px solid #ccc;
+    height: 60px;
+    line-height: 45px;
+    background-color: #eee;
+}
+.drag li a {
+    color: #000 !important;
+}
+#feedbacks ul {
+    list-style: none;
+}
+#feedbacks li a {
+    color: #000000;
+    text-decoration: none;
+}
+.list-group-item {
+    border-left: 10px solid green !important;
+}
+.list-group-item-secondary {
+    border-left: none !important;
+}

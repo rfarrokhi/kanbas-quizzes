@@ -1,0 +1,161 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit profile - Kanbas</title>
+    <script src="/NavigationInjection.js" defer></script>
+    <link
+            href="/libs/bootstrap-5.3.2-dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="/libs/fontawesome/css/all.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Kanbas-old/styles.css" />
+</head>
+<body>
+<div class="body container-fluid text-center">
+    <div class="row">
+        <div class="col-1 left">
+            <div id="kanbas-navigation">
+                <!-- Will be injected by NavigationInjection.js -->
+            </div>
+        </div>
+        <div class="d-flex mb-3 flex-column col-10 main">
+            <div class="p-2 row header">
+                <div class="col-2">
+                    <button class="hamburger-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <div class="col-5 title d-flex align-items-center">
+                    <p>Reza Farrokhi Saray's Profile</p>
+                </div>
+            </div>
+            <div class="p-2 profile row">
+                <div id="account-navigation" class="profile-sidebar sidebar col-3">
+                    <!-- Will be injected by the navigationInjection.js -->
+                </div>
+                <div class="profile-context col-9">
+                    <form action="/Kanbas-old/Account/Profile">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="portrait portrait-edit">
+                                    <img src="/Images/profile_photo.jpg" /> <br />
+                                    <label for="name" class="form-label"
+                                    ><h5>Name:*</h5></label
+                                    >
+                                    <input
+                                            class="profile-input form-control"
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            value="Reza Farrokhi Saray"
+                                    />
+                                    <label for="pronouns" class="form-label">Pronouns:</label>
+                                    <select
+                                            class="profile-input form-control"
+                                            id="pronouns"
+                                            name="pronouns"
+                                    >
+                                        <option value="he/him">He/Him</option>
+                                        >
+                                        <option value="she/her">She/Her</option>
+                                        >
+                                        <option value="non-binary">Non-binary</option>
+                                        >
+                                    </select>
+                                    <label for="title" class="form-label">Title</label>
+                                    <input
+                                            class="profile-input form-control"
+                                            type="text"
+                                            name="title"
+                                            id="title"
+                                    />
+                                    <div class="profile-item">
+                                        <h2>Contact</h2>
+                                        <p>
+                                            No registered services, you can add some on the
+                                            settings page.
+                                        </p>
+                                    </div>
+                                    <div class="profile-item">
+                                        <h2>Biography</h2>
+                                        <textarea
+                                                class="profile-input form-control"
+                                                placeholder="Biography information"
+                                                style="width: 400px; height: 200px"
+                                        >
+Faculty, Software Engineer, Al, Space, and renewables enthusiast.</textarea
+                                        >
+                                    </div>
+                                    <div class="profile-item links">
+                                        <h2>Links</h2>
+                                        <ul>
+                                            <li>
+                                                <a href="https://github.com/rfarrokhi/">GitHub</a>
+                                            </li>
+                                        </ul>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <h4>Title</h4>
+                                                <input
+                                                        class="profile-input"
+                                                        type="text"
+                                                        value="GitHub"
+                                                />
+                                            </div>
+                                            <div class="col-2">👉</div>
+                                            <div class="col-5">
+                                                <h4>URL</h4>
+                                                <input
+                                                        class="profile-input"
+                                                        type="text"
+                                                        value="https://github.com/rfarrokhi/"
+                                                />
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-default">
+                                            Add another link
+                                        </button>
+                                    </div>
+                                    <hr />
+                                    <div class="edit-buttons float-end">
+                                        <a href="/Kanbas-old/Account/Profile"
+                                        ><button type="button" class="btn btn-default">
+                                            Cancel
+                                        </button></a
+                                        >
+                                        <a href="/Kanbas-old/Account/Profile"
+                                        ><button
+                                                type="button"
+                                                class="btn btn-default profile-save"
+                                        >
+                                            Save Profile
+                                        </button></a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a class="float-end" href="/Kanbas-old/Account/Profile"
+                                ><button
+                                        type="button"
+                                        class="btn btn-default profile-save"
+                                >
+                                    <i
+                                            class="fa-solid fa-pencil"
+                                            style="color: #000000"
+                                    ></i>
+                                    Cancel Editing
+                                </button></a
+                                >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

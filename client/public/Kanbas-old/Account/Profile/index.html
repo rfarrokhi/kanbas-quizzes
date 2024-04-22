@@ -1,0 +1,87 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile - Kanbas</title>
+    <script src="/NavigationInjection.js" defer></script>
+    <link
+            href="/libs/bootstrap-5.3.2-dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="/libs/fontawesome/css/all.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Kanbas-old/styles.css" />
+</head>
+<body>
+<div class="body container-fluid text-center">
+    <div class="row">
+        <div class="col-1 left">
+            <div id="kanbas-navigation">
+                <!-- Will be injected by NavigationInjection.js -->
+            </div>
+        </div>
+        <div class="d-flex mb-3 flex-column col-10 main">
+            <div class="p-2 row header">
+                <div class="col-2">
+                    <button class="hamburger-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <div class="col-5 title d-flex align-items-center">
+                    <p>Reza Farrokhi Saray Saray's Profile</p>
+                </div>
+            </div>
+            <div class="p-2 profile row">
+                <div id="account-navigation" class="profile-sidebar sidebar col-3">
+                    <!-- Will be injected by NavigationInjection.js -->
+                </div>
+                <div class="profile-context col-9">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="portrait">
+                                <img src="/Images/profile_photo.jpg" />
+                                <p>Reza Farrokhi Saray</p>
+                                <div class="profile-item">
+                                    <h2>Contact</h2>
+                                    <p>
+                                        No registered services, you can add some on the settings
+                                        page.
+                                    </p>
+                                </div>
+                                <div class="profile-item">
+                                    <h2>Biography</h2>
+                                    <p>Student</p>
+                                </div>
+                                <div class="profile-item links">
+                                    <h2>Links</h2>
+                                    <p>
+                                        <a href="https://www.youtube.com">YouTube</a>
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </p>
+                                    <p>
+                                        <a href="https://github.com/rfarrokhi/">GitHub</a>
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <a class="float-end" href="/Kanbas-old/Account/Profile/Edit"
+                            ><button type="button" class="btn btn-default">
+                                <i
+                                        style="color: #282c34"
+                                        class="fa fa-pencil"
+                                        aria-hidden="true"
+                                ></i>
+                                Edit Profile
+                            </button></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
