@@ -113,8 +113,11 @@ export class Quiz implements Quizable {
             type: QuizQuestionType.MultipleChoice,
             question: "",
             points: 1,
+            choices: [],
             correctAnswer: "",
-            choices: []
+            correctAnswers: [],
+            givenAnswer: "",
+            givenAnswers: []
         }
         this.questions.push(question)
         useQuizStore.getState().setCurrentQuestion(question)
@@ -144,7 +147,10 @@ export interface QuizQuestion {
     type: QuizQuestionType
     question: string
     points: number
-    correctAnswer: string | boolean | string[]
+    correctAnswer: string | boolean
+    correctAnswers?: string[]
+    givenAnswer?: string | boolean
+    givenAnswers?: string[]
 }
 
 export interface MultipleChoiceQuestion extends QuizQuestion {
@@ -158,6 +164,7 @@ export interface TrueFalseQuestion extends QuizQuestion {
 
 export interface FillInMultipleBlanksQuestion extends QuizQuestion {
     correctAnswers: string[]
+    givenAnswers: string[]
 }
 
 export enum QuizQuestionType {
@@ -178,6 +185,78 @@ export enum QuizAssignmentGroup {
     Exams = "Exams",
     Assignments = "Assignments",
     Project = "Project"
+}
+
+export function validateQuiz(quiz: Quizable) {
+    const errors = []
+
+
+    if (quiz.title === "") {
+        errors.push("Title is required")
+    }
+    if (quiz.instructions === "") {
+        errors.push("Instructions are required")
+    }
+    if (quiz.questions.length === 0) {
+        errors.push("At least one question is required")
+    }
+    if (quiz.dueDate < quiz.availableDate) {
+        errors.push("Due date must be after available date")
+    }
+    if (quiz.untilDate < quiz.dueDate) {
+        errors.push("Until date must be after due date")
+    }
+    if (quiz.untilDate < quiz.availableDate) {
+        errors.push("Until date must be after available date")
+    }
+    if (quiz.timeLimit < 0) {
+        errors.push("Time limit must be a positive number")
+    }
+
+    return errors
+}
+
+export function validateQuizQuestions(questions: QuizQuestion[]) {
+    const errors: string[] = []
+    questions.forEach((question, index) => {
+        if (question.title === "") {
+            errors.push(`Question ${index + 1} title is required`)
+        }
+        if (question.question === "") {
+            errors.push(`Question ${index + 1} text is required`)
+        }
+        if (question.points < 0) {
+            errors.push(`Question ${index + 1} points must be a positive number`)
+        }
+        if (question.type === QuizQuestionType.MultipleChoice) {
+            const multipleChoiceQuestion = question as MultipleChoiceQuestion
+            if (multipleChoiceQuestion.choices.length < 2) {
+                errors.push(`Question ${index + 1} must have at least 2 choices`)
+            }
+            if (multipleChoiceQuestion.choices.includes("")) {
+                errors.push(`Question ${index + 1} choices must not be empty`)
+            }
+            if (!multipleChoiceQuestion.choices.includes(multipleChoiceQuestion.correctAnswer)) {
+                errors.push(`Question ${index + 1} correct answer must be one of the choices`)
+            }
+        }
+        if (question.type === QuizQuestionType.TrueFalse) {
+            const trueFalseQuestion = question as TrueFalseQuestion
+            if (trueFalseQuestion.correctAnswer === undefined) {
+                errors.push(`Question ${index + 1} must have a correct answer`)
+            }
+        }
+        if (question.type === QuizQuestionType.FillInMultipleBlanks) {
+            const fillInMultipleBlanksQuestion = question as FillInMultipleBlanksQuestion
+            if (fillInMultipleBlanksQuestion.correctAnswers.length === 0) {
+                errors.push(`Question ${index + 1} must have at least one correct answer`)
+            }
+            if (fillInMultipleBlanksQuestion.correctAnswers.includes("")) {
+                errors.push(`Question ${index + 1} correct answers must not be empty`)
+            }
+        }
+    })
+    return errors
 }
 
 const useQuizStore = create<QuizState>()((set) => ({

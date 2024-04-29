@@ -2,11 +2,8 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {Button} from "@/components/ui/button";
 import useQuizStore, {Quiz} from "@/lib/QuizStore";
 import {RxRocket} from "react-icons/rx";
 import {HiDotsVertical} from "react-icons/hi";

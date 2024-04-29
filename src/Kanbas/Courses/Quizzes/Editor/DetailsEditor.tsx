@@ -29,9 +29,6 @@ export default function QuizDetailsEditor() {
     const [currentQuiz, setCurrentQuiz] = useState(useQuizStore().currentQuiz);
     const currentQuizPublishedColor = currentQuiz?.published ? "green" : "grey";
 
-
-    const [quizInstructions, setQuizInstructions] = useState<string>(`\n\n\n\n\n`);
-
     function navigateToQuizDetails() {
         navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizId}`)
     }
@@ -59,6 +56,14 @@ export default function QuizDetailsEditor() {
         }
     }
 
+    function handleQuizInstructionsChange(content: string) {
+        if (currentQuiz) {
+            currentQuiz.instructions = content;
+            setCurrentQuiz(currentQuiz)
+            currentQuiz.updateInStore();
+        }
+    }
+
     function handleQuizTypeChange(value: string) {
         if (currentQuiz) {
             currentQuiz.type = value as QuizType;
@@ -74,6 +79,57 @@ export default function QuizDetailsEditor() {
             currentQuiz.updateInStore();
         }
     }
+
+    function handleShuffleAnswerChange(event: any) {
+        if (currentQuiz) {
+            currentQuiz.shuffleAnswers = !currentQuiz.shuffleAnswers;
+            setCurrentQuiz(currentQuiz)
+            currentQuiz.updateInStore();
+
+        }
+    }
+
+    function handleMultipleAttemptsChange(event: any) {
+        if (currentQuiz) {
+            currentQuiz.multipleAttempts = !currentQuiz.multipleAttempts;
+            setCurrentQuiz(currentQuiz)
+            currentQuiz.updateInStore();
+
+        }
+    }
+
+    function handleTimeLimitChange(event: any) {
+        if (currentQuiz) {
+            if (isNaN(event.target.value)) {
+                return;
+            }
+            currentQuiz.timeLimit = event.target.value;
+            setCurrentQuiz(currentQuiz)
+            currentQuiz.updateInStore();
+        }
+    }
+
+    function handleDateChange(type: string, event: any) {
+        if (!currentQuiz) {
+            return;
+        }
+        switch (type) {
+            case "due":
+                currentQuiz.dueDate = new Date(event.target.value);
+                break;
+            case "available-from":
+                currentQuiz.availableDate = new Date(event.target.value);
+                break;
+            case "until":
+                currentQuiz.untilDate = new Date(event.target.value);
+                break;
+            default:
+                break;
+        }
+        setCurrentQuiz(currentQuiz)
+        currentQuiz.updateInStore();
+    }
+
 
     return (
         <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
@@ -121,8 +177,8 @@ export default function QuizDetailsEditor() {
                             <div className="flex flex-col">
                                 <Label htmlFor="quiz-instructions">Quiz Instructions:</Label>
                                 <Editor
-                                    content={quizInstructions}
-                                    onChange={(content) => setQuizInstructions(content)}
+                                    content={currentQuiz?.instructions || ""}
+                                    onChange={(content) => handleQuizInstructionsChange(content)}
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
@@ -158,17 +214,19 @@ export default function QuizDetailsEditor() {
                             <div className="space-y-3">
                                 <div className="font-semibold">Options</div>
                                 <div className="flex items-center space-x-2">
-                                    <Checkbox id="shuffle-answers"/>
+                                    <Checkbox checked={currentQuiz?.shuffleAnswers} onClick={handleShuffleAnswerChange}
+                                              id="shuffle-answers"/>
                                     <Label htmlFor="shuffle-answers">Shuffle Answers</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <Checkbox id="time-limit"/>
-                                    <Label htmlFor="time-limit">Time Limit</Label>
-                                    <Input className="w-24" id="time-limit" placeholder="Minutes"/>
+                                    <Checkbox checked={currentQuiz?.multipleAttempts}
+                                              onClick={handleMultipleAttemptsChange} id="multiple-attempts"/>
+                                    <Label htmlFor="multiple-attempts">Allow Multiple Attempts</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <Checkbox id="multiple-attempts"/>
-                                    <Label htmlFor="multiple-attempts">Allow Multiple Attempts</Label>
+                                    <Label htmlFor="time-limit">Time Limit</Label>
+                                    <Input className="w-24" id="time-limit" onChange={handleTimeLimitChange}
+                                           value={currentQuiz?.timeLimit} placeholder="Minutes"/>
                                 </div>
                             </div>
                         </div>
@@ -179,15 +237,12 @@ export default function QuizDetailsEditor() {
                                 </label>
                                 <div className="relative">
                                     <input
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-4 p-2.5"
                                         id="due"
                                         placeholder="Due date"
-                                        type="text"
+                                        type="datetime-local"
+                                        onChange={(event) => handleDateChange("due", event)}
                                     />
-                                    <div
-                                        className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <CalendarDaysIcon className="h-4 w-4 text-gray-500"/>
-                                    </div>
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -198,15 +253,12 @@ export default function QuizDetailsEditor() {
                                     </label>
                                     <div className="relative">
                                         <input
-                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-4 p-2.5"
                                             id="available-from"
                                             placeholder="Start date"
-                                            type="text"
+                                            type="datetime-local"
+                                            onChange={(event) => handleDateChange("available-from", event)}
                                         />
-                                        <div
-                                            className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <CalendarDaysIcon className="h-4 w-4 text-gray-500"/>
-                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -215,15 +267,12 @@ export default function QuizDetailsEditor() {
                                     </label>
                                     <div className="relative">
                                         <input
-                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-4 p-2.5"
                                             id="until"
                                             placeholder="End date"
-                                            type="text"
+                                            type="datetime-local"
+                                            onChange={(event) => handleDateChange("until", event)}
                                         />
-                                        <div
-                                            className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <CalendarDaysIcon className="h-4 w-4 text-gray-500"/>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +283,7 @@ export default function QuizDetailsEditor() {
                             <ul className="flex flex-col gap-4 mb-8 w-full">
                                 {
                                     currentQuiz?.questions.map((question, index) => (
-                                        <QuestionListItem question={question} key={index}/>
+                                        <QuestionListItem question={question} index={index} key={index}/>
                                     ))
                                 }
                             </ul>
@@ -269,7 +318,7 @@ export default function QuizDetailsEditor() {
                     </label>
                 </div>
                 <div className="mt-6 flex justify-end gap-4">
-                    <Button className="text-gray-700 border-gray-300 hover:bg-gray-50" variant="outline">
+                    <Button onClick={navigateToQuizDetails} className="text-gray-700 border-gray-300 hover:bg-gray-50" variant="outline">
                         Cancel
                     </Button>
                     <Button onClick={() => handleQuizSave(true)} className="text-white bg-red-700 hover:bg-red-800" variant="destructive">

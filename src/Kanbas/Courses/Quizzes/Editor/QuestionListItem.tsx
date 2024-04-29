@@ -6,7 +6,7 @@ import { FiTrash } from "react-icons/fi";
 import {useNavigate} from "react-router-dom";
 
 
-export default function QuestionListItem({question}: {question: QuizQuestion}) {
+export default function QuestionListItem({question, index}: {question: QuizQuestion, index: number}) {
 
     const navigate = useNavigate();
     const currentQuiz = useQuizStore().currentQuiz;
@@ -23,14 +23,12 @@ export default function QuestionListItem({question}: {question: QuizQuestion}) {
             console.log("Current Quiz", currentQuiz);
             currentQuiz.deleteQuestion(question);
         }
-        //currentQuiz?.deleteQuestion(question);
-        //currentQuiz?.updateInStore();
     }
 
     return (
         <li className="flex items-center justify-between rounded-lg p-4 bg-white shadow-md dark:bg-gray-800">
             <div className="flex items-center">
-                <FaDotCircle className="mr-4 h-4 w-4"/>
+                <span className="mr-4 h-4 w-4 font-bold">{index+1}) </span>
                 <div className="flex items-center space-x-4">
                     <div className="bg-gray-100 rounded-md py-1 px-2 text-sm dark:bg-gray-700">
                         <span>{question.points} Points</span>
