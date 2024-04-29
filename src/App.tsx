@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import './globals.css';
 import './App.css';
 
 import Labs from "./Labs";

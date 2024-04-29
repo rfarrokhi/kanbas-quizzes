@@ -10,6 +10,12 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import * as client from "../services/client";
+import QuizList from "./Quizzes//List";
+import QuizDetails from "@/Kanbas/Courses/Quizzes/QuizDetails";
+import QuizDetailsEditor from "@/Kanbas/Courses/Quizzes/Editor/DetailsEditor";
+import QuizQuestionEditor from "@/Kanbas/Courses/Quizzes/Editor/QuestionEditor";
+import QuizPreview from "@/Kanbas/Courses/Quizzes/Preview";
+import useQuizStore from "@/lib/QuizStore";
 
 function Courses() {
 
@@ -17,6 +23,7 @@ function Courses() {
     const location = useLocation();
 
     const [course, setCourse] = useState<any>({ _id: "" });
+    const currentQuiz = useQuizStore((state) => state.currentQuiz);
 
 
     useEffect(() => {
@@ -33,6 +40,15 @@ function Courses() {
     useEffect(() => {
         setCurrentBreadcrumb(activeNavigationItem);
     }, [activeNavigationItem]);
+
+    useEffect(() => {
+        if (currentQuiz && location.pathname.includes("Quizzes")) {
+            setCurrentBreadcrumb(`Quizzes > ${currentQuiz.title}`);
+        }
+        else {
+            setCurrentBreadcrumb(activeNavigationItem);
+        }
+    }, [currentQuiz, currentQuiz?.title]);
 
 
     return (
@@ -61,6 +77,11 @@ function Courses() {
                         <Route path="Piazza" element={<h1>Piazza</h1>}/>
                         <Route path="Assignments" element={<Assignments/>}/>
                         <Route path="Assignments/:assignmentId" element={<AssignmentEditor setBreadcrumb={setCurrentBreadcrumb}/>}/>
+                        <Route path={"Quizzes"} element={<QuizList/>}/>
+                        <Route path={"Quizzes/:quizId"} element={<QuizDetails/>}/>
+                        <Route path={"Quizzes/:quizId/edit"} element={<QuizDetailsEditor/>}/>
+                        <Route path={"Quizzes/:quizId/:questionId/edit"} element={<QuizQuestionEditor/>}/>
+                        <Route path={"Quizzes/:quizId/preview"} element={<QuizPreview/>}/>
                         <Route path="Grades" element={<Grades/>}/>
                     </Routes>
                 </div>
